@@ -1,3 +1,4 @@
+import Contact from "./Contact";
 import Footer from "./Footer";
 import Hero from "./Hero";
 import Navbar from "./Navbar";
@@ -12,6 +13,7 @@ export default function Home() {
         <Hero />
         <Projects />
         <Skills />
+        <Contact />
       </main>
       <Footer />
     </div>
