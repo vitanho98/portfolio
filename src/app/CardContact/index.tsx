@@ -17,13 +17,13 @@ export default function Contact() {
   return (
     <section id="contact" className="py-20">
       <div className="w-full px-4 md:px-6">
-        <div className="flex flex-col items-center justify-center space-y-4 text-center">
+        <div className="flex flex-col items-center justify-center space-y-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="space-y-2"
+            className="space-y-2 text-center"
           >
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
               Entre em Contato
@@ -47,13 +47,13 @@ export default function Contact() {
                     Várias formas de entrar em contato comigo.
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="flex items-center space-x-4">
+                <CardContent className="flex flex-col gap-4">
+                  <div className="flex items-center gap-4">
                     <Mail className="h-5 w-5 text-primary" />
                     <div>
                       <p className="text-sm font-medium">Email</p>
                       <p className="text-sm text-muted-foreground">
-                        email@example.com
+                        weslemstorl@gmail.com
                       </p>
                     </div>
                   </div>
@@ -62,7 +62,7 @@ export default function Contact() {
                     <div>
                       <p className="text-sm font-medium">Telefone</p>
                       <p className="text-sm text-muted-foreground">
-                        +55 (11) 98765-4321
+                        +55 (47) 98863-7985
                       </p>
                     </div>
                   </div>
@@ -71,7 +71,7 @@ export default function Contact() {
                     <div>
                       <p className="text-sm font-medium">Localização</p>
                       <p className="text-sm text-muted-foreground">
-                        São Paulo, Brasil
+                        Blumenau - Santa Catarina, Brasil
                       </p>
                     </div>
                   </div>
@@ -94,19 +94,13 @@ export default function Contact() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <form className="space-y-4">
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                        <Input id="name" placeholder="Nome" />
-                      </div>
-                      <div className="space-y-2">
-                        <Input id="email" type="email" placeholder="Email" />
-                      </div>
+                  <form className="flex flex-col gap-3">
+                    <div className="w-full flex gap-3">
+                      <Input id="name" placeholder="Nome" />
+                      <Input id="email" type="email" placeholder="Email" />
                     </div>
-                    <div className="space-y-2">
+                    <div className="flex flex-col gap-3">
                       <Input id="subject" placeholder="Assunto" />
-                    </div>
-                    <div className="space-y-2">
                       <Textarea
                         id="message"
                         placeholder="Sua mensagem"
