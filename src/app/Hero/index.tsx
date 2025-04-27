@@ -9,11 +9,11 @@ import CardContact from "../LinkContact";
 
 export default function Hero() {
   return (
-    <section id="home" className="py-20 md:py-32">
-      <div className="w-full px-4 md:px-6">
-        <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
+    <section id="home" className="py-6 md:py-32">
+      <div className="w-full px-4 md:px-8">
+        <div className="flex flex-col-reverse md:flex-row items-center md:justify-between">
           <div className="flex flex-col justify-center space-y-4">
-            <div className="space-y-2">
+            <div className="flex flex-col gap-2">
               <motion.h1
                 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none"
                 initial={{ opacity: 0, y: 20 }}
@@ -48,7 +48,7 @@ export default function Hero() {
               </Button>
             </motion.div>
             <motion.div
-              className="flex gap-4 mt-4"
+              className="flex gap-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.6 }}
@@ -57,12 +57,12 @@ export default function Hero() {
             </motion.div>
           </div>
           <motion.div
-            className="flex items-center justify-center"
+            className="flex items-center justify-center mb-8 md:mb-0"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <div className="relative aspect-square w-full max-w-[400px] overflow-hidden rounded-full bg-gradient-to-b from-primary to-primary/20">
+            <div className="relative aspect-square w-full max-w-[200px] md:max-w-[400px] overflow-hidden rounded-full bg-gradient-to-b from-primary to-primary/20">
               <Image
                 src="/assets/weslem.png"
                 alt="Developer portrait"
