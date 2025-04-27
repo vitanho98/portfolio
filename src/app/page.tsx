@@ -1,4 +1,4 @@
-import Contact from "./Contact";
+import Contact from "./CardContact";
 import Footer from "./Footer";
 import Hero from "./Hero";
 import Navbar from "./Navbar";
@@ -7,7 +7,7 @@ import Skills from "./Skills";
 
 export default function Home() {
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex flex-col min-h-screen">
       <Navbar />
       <main className="flex-grow">
         <Hero />
