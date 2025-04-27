@@ -2,12 +2,29 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import {
+  Menu,
+  Home,
+  FolderKanban,
+  Lightbulb,
+  Contact,
+  Download,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ModeToggle } from "./ModeToggle";
+import {
+  CommandDialog,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "@/components/ui/command";
+import { useRouter } from "next/navigation";
 
 export default function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [open, setOpen] = useState(false);
+  const router = useRouter();
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -18,7 +35,6 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-6">
           <Link
             href="#home"
@@ -48,59 +64,68 @@ export default function Navbar() {
           <Button>Download CV</Button>
         </nav>
 
-        {/* Mobile Navigation */}
         <div className="flex md:hidden items-center gap-4">
           <ModeToggle />
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? (
-              <X className="h-6 w-6" />
-            ) : (
-              <Menu className="h-6 w-6" />
-            )}
+          <Button variant="ghost" size="icon" onClick={() => setOpen(true)}>
+            <Menu className="h-6 w-6" />
           </Button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div className="md:hidden w-full py-4 pb-6 border-b">
-          <nav className="flex flex-col space-y-4">
-            <Link
-              href="#home"
-              className="text-sm font-medium hover:text-primary transition-colors"
-              onClick={() => setIsMenuOpen(false)}
+      <CommandDialog open={open} onOpenChange={setOpen}>
+        <CommandInput placeholder="Digite um comando ou pesquise..." />
+        <CommandList>
+          <CommandEmpty>Nenhum resultado encontrado.</CommandEmpty>
+          <CommandGroup heading="Navegação">
+            <CommandItem
+              onSelect={() => {
+                router.push("#home");
+                setOpen(false);
+              }}
             >
-              Home
-            </Link>
-            <Link
-              href="#projects"
-              className="text-sm font-medium hover:text-primary transition-colors"
-              onClick={() => setIsMenuOpen(false)}
+              <Home className="mr-2 h-4 w-4" />
+              <span>Home</span>
+            </CommandItem>
+            <CommandItem
+              onSelect={() => {
+                router.push("#projects");
+                setOpen(false);
+              }}
             >
-              Projetos
-            </Link>
-            <Link
-              href="#skills"
-              className="text-sm font-medium hover:text-primary transition-colors"
-              onClick={() => setIsMenuOpen(false)}
+              <FolderKanban className="mr-2 h-4 w-4" />
+              <span>Projetos</span>
+            </CommandItem>
+            <CommandItem
+              onSelect={() => {
+                router.push("#skills");
+                setOpen(false);
+              }}
             >
-              Habilidades
-            </Link>
-            <Link
-              href="#contact"
-              className="text-sm font-medium hover:text-primary transition-colors"
-              onClick={() => setIsMenuOpen(false)}
+              <Lightbulb className="mr-2 h-4 w-4" />
+              <span>Habilidades</span>
+            </CommandItem>
+            <CommandItem
+              onSelect={() => {
+                router.push("#contact");
+                setOpen(false);
+              }}
             >
-              Contato
-            </Link>
-            <Button className="w-full">Download CV</Button>
-          </nav>
-        </div>
-      )}
+              <Contact className="mr-2 h-4 w-4" />
+              <span>Contato</span>
+            </CommandItem>
+          </CommandGroup>
+          <CommandGroup heading="Ações">
+            <CommandItem
+              onSelect={() => {
+                setOpen(false);
+              }}
+            >
+              <Download className="mr-2 h-4 w-4" />
+              <span>Download CV</span>
+            </CommandItem>
+          </CommandGroup>
+        </CommandList>
+      </CommandDialog>
     </header>
   );
 }
