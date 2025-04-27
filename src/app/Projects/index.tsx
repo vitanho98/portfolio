@@ -15,49 +15,46 @@ import { ExternalLink, Github } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
-const projects = [
+interface Project {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  tags: string[];
+  repoUrl: string;
+  demoUrl?: string;
+}
+
+const projects: Project[] = [
   {
     id: 1,
-    title: "E-commerce Platform",
+    title: "Code Spark - Frontend",
     description:
-      "Uma plataforma de e-commerce completa com carrinho de compras, pagamentos e painel de administração.",
-    image: "/placeholder.svg?height=300&width=500",
-    tags: ["React", "Node.js", "MongoDB", "Stripe"],
-    demoUrl: "https://example.com",
-    repoUrl: "https://github.com",
+      "Uma plataforma de cursos online com sistema de login, pagamento e gerenciamento de cursos.",
+    image: "/assets/projects/codespark.png",
+    tags: ["Vue", "Tailwind CSS", "PrimeVue", "Firebase", "MongoDB"],
+    repoUrl: "https://github.com/vitanho98/Code-Spark-Client",
   },
   {
     id: 2,
-    title: "Task Management App",
+    title: "Zomboid Tips",
     description:
-      "Aplicativo de gerenciamento de tarefas com recursos de arrastar e soltar, notificações e colaboração em equipe.",
-    image: "/placeholder.svg?height=300&width=500",
-    tags: ["Next.js", "TypeScript", "Prisma", "Tailwind CSS"],
-    demoUrl: "https://example.com",
-    repoUrl: "https://github.com",
-  },
-  {
-    id: 3,
-    title: "Portfolio Website",
-    description:
-      "Site de portfólio responsivo com animações suaves e design moderno.",
-    image: "/placeholder.svg?height=300&width=500",
-    tags: ["React", "Framer Motion", "Tailwind CSS"],
-    demoUrl: "https://example.com",
-    repoUrl: "https://github.com",
+      "Uma plataforma de dicas para o jogo Zomboid. (Vai ser refatorado)",
+    image: "/assets/projects/projectzomboid.png",
+    tags: ["React.js", "Next.js", "Tailwind CSS", "Shadcn UI"],
+    repoUrl: "https://github.com/vitanho98/ZomboidTips",
   },
 ];
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-20">
-      <div className="w-full px-4 md:px-6">
-        <div className="flex flex-col items-center justify-center space-y-4 text-center">
+    <section id="projects" className="flex flex-col items-center py-20">
+      <div className="w-full max-w-5xl px-4 md:px-6">
+        <div className="flex flex-col items-center justify-center gap-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
             className="space-y-2"
           >
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
@@ -67,21 +64,20 @@ export default function Projects() {
               Confira alguns dos meus trabalhos recentes e projetos pessoais.
             </p>
           </motion.div>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 mt-8">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             {projects.map((project, index) => (
               <motion.div
                 key={project.id}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
               >
-                <Card className="overflow-hidden h-full flex flex-col">
+                <Card className="overflow-hidden h-full flex flex-col pt-0">
                   <div className="overflow-hidden">
                     <Image
                       src={project.image || "/placeholder.svg"}
                       alt={project.title}
-                      className="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
+                      className="w-full h-48 object-cover"
                       width={500}
                       height={300}
                     />
@@ -109,21 +105,28 @@ export default function Projects() {
                         <Github className="mr-2 h-4 w-4" /> Código
                       </Link>
                     </Button>
-                    <Button asChild size="sm">
-                      <Link
-                        href={project.demoUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <ExternalLink className="mr-2 h-4 w-4" /> Demo
-                      </Link>
-                    </Button>
+                    {project.demoUrl ? (
+                      <Button asChild size="sm">
+                        <Link
+                          href={project.demoUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <ExternalLink className="mr-2 h-4 w-4" /> Demo
+                        </Link>
+                      </Button>
+                    ) : null}
                   </CardFooter>
                 </Card>
               </motion.div>
             ))}
           </div>
-          <Button variant="outline" className="mt-8 cursor-pointer">
+          <Button
+            variant="outline"
+            className={`mt-8 cursor-pointer ${
+              projects.length < 3 ? "hidden" : ""
+            }`}
+          >
             Ver mais projetos
           </Button>
         </div>
