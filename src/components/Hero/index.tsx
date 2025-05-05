@@ -10,7 +10,7 @@ import CardContact from "../LinkContact";
 export default function Hero() {
   return (
     <section id="home" className="py-6 md:py-32">
-      <div className="w-full px-4 md:px-8">
+      <div className="max-w-5xl mx-auto px-4 md:px-8">
         <div className="flex flex-col-reverse md:flex-row items-center md:justify-between">
           <div className="flex flex-col justify-center space-y-4">
             <div className="flex flex-col gap-2">
@@ -23,7 +23,7 @@ export default function Hero() {
                 Olá, eu sou o <span className="text-primary">Weslem</span>
               </motion.h1>
               <motion.p
-                className="max-w-[600px] text-muted-foreground md:text-xl"
+                className="max-w-[500px] text-muted-foreground md:text-xl"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
@@ -44,7 +44,9 @@ export default function Hero() {
                 </Link>
               </Button>
               <Button variant="outline" className="cursor-pointer">
-                Ver projetos <ArrowRight className="ml-2 h-4 w-4" />
+                <Link href="#projects" className="flex items-center">
+                  Ver projetos <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
               </Button>
             </motion.div>
             <motion.div
@@ -67,8 +69,8 @@ export default function Hero() {
                 src="/assets/weslem.png"
                 alt="Developer portrait"
                 className="object-cover"
-                width={400}
-                height={400}
+                width={280}
+                height={280}
                 priority
               />
             </div>

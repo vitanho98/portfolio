@@ -102,7 +102,7 @@ export default function Skills() {
     return (
       <div className="relative">
         <motion.div
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+          className="max-w-7xl grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
