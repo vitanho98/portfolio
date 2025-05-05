@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -9,14 +8,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Mail, MapPin, Phone } from "lucide-react";
-
+import { ContactForm } from "../ContactForm";
 export default function Contact() {
   return (
     <section id="contact" className="py-20">
-      <div className="w-full px-4 md:px-6">
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -91,23 +88,7 @@ export default function Contact() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <form className="flex flex-col gap-3">
-                    <div className="w-full flex gap-3">
-                      <Input id="name" placeholder="Nome" />
-                      <Input id="email" type="email" placeholder="Email" />
-                    </div>
-                    <div className="flex flex-col gap-3">
-                      <Input id="subject" placeholder="Assunto" />
-                      <Textarea
-                        id="message"
-                        placeholder="Sua mensagem"
-                        className="min-h-[120px]"
-                      />
-                    </div>
-                    <Button type="submit" className="w-full">
-                      Enviar Mensagem
-                    </Button>
-                  </form>
+                  <ContactForm />
                 </CardContent>
               </Card>
             </motion.div>
