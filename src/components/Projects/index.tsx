@@ -43,13 +43,24 @@ const projects: Project[] = [
     image: "/assets/projects/projectzomboid.png",
     tags: ["React.js", "Next.js", "Tailwind CSS", "Shadcn UI"],
     repoUrl: "https://github.com/vitanho98/ZomboidTips",
+    demoUrl: "https://zomboid-tips.netlify.app/",
+  },
+  {
+    id: 3,
+    title: "PushPipe",
+    description:
+      "Uma plataforma que captura automaticamente os principais eventos do GitHub e os envia diretamente para os canais de comunicação da sua equipe, garantindo que todos fiquem informados sobre atividades importantes de desenvolvimento exatamente quando elas acontecem.",
+    image: "/assets/projects/pushpipe.png",
+    tags: ["React.js", "Next.js", "Tailwind CSS", "Shadcn UI", "Husky", "Auth"],
+    repoUrl: "https://github.com/vitanho98/pushpipe",
+    demoUrl: "https://push-pipe.vercel.app/",
   },
 ];
 
 export default function Projects() {
   return (
     <section id="projects" className="flex flex-col items-center py-20">
-      <div className="w-full max-w-5xl px-4 md:px-6">
+      <div className="w-full max-w-7xl mx-auto px-4 md:px-6">
         <div className="flex flex-col items-center justify-center gap-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -106,7 +117,7 @@ export default function Projects() {
                       </Link>
                     </Button>
                     {project.demoUrl ? (
-                      <Button asChild size="sm">
+                      <Button variant="outline" asChild size="sm">
                         <Link
                           href={project.demoUrl}
                           target="_blank"
@@ -124,7 +135,7 @@ export default function Projects() {
           <Button
             variant="outline"
             className={`mt-8 cursor-pointer ${
-              projects.length < 3 ? "hidden" : ""
+              projects.length < 4 ? "hidden" : ""
             }`}
           >
             Ver mais projetos
