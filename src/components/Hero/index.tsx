@@ -28,8 +28,9 @@ export default function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
               >
-                Desenvolvedor Front-End apaixonado por criar experiências
-                digitais incríveis e soluções inovadoras.
+                Sou desenvolvedor front-end e estou buscando evoluir a cada dia.
+                Esse é meu primeiro portfólio e será constantemente atualizado
+                para melhorar cada vez mais, espero que gostem.
               </motion.p>
             </div>
             <motion.div
