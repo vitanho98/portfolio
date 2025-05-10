@@ -28,11 +28,20 @@ export default function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
               >
-                Sou desenvolvedor front-end e estou buscando evoluir a cada dia.
-                Esse é meu primeiro portfólio e será constantemente atualizado
-                para melhorar cada vez mais, espero que gostem.
+                👋 E aí! Tenho 19 anos e sou desenvolvedor front-end. Gosto de
+                criar interfaces bem pensadas, com atenção a cada detalhe, e
+                sempre buscando entregar algo bonito, funcional e leve.
               </motion.p>
             </div>
+            <motion.p
+              className="max-w-[500px] text-muted-foreground md:text-xl"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+            >
+              Sou movido por curiosidade, aprendizado constante e pela vontade
+              de evoluir em cada projeto que desenvolvo.
+            </motion.p>
             <motion.div
               className="flex flex-col gap-2 min-[400px]:flex-row"
               initial={{ opacity: 0, y: 20 }}
