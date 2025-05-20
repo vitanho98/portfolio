@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import CardContact from "../LinkContact";
+import LinkContact from "./components/LinkContact";
 
 export default function Hero() {
   return (
@@ -65,7 +65,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.6 }}
             >
-              <CardContact />
+              <LinkContact />
             </motion.div>
           </div>
           <motion.div

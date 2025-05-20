@@ -9,8 +9,9 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Mail, MapPin, Phone } from "lucide-react";
-import { ContactForm } from "../ContactForm";
-export default function Contact() {
+import { ContactForm } from "./components/ContactForm";
+
+export default function CardContact() {
   return (
     <section id="contact" className="py-20">
       <div className="max-w-7xl mx-auto px-4 md:px-6">

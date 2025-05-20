@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
 
-export default function CardContact() {
+export default function LinkContact() {
   return (
     <div className="flex gap-4">
       <Link

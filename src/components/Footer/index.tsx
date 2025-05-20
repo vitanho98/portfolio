@@ -1,4 +1,4 @@
-import CardContact from "../LinkContact";
+import CardContact from "../Hero/components/LinkContact";
 
 export default function Footer() {
   return (
